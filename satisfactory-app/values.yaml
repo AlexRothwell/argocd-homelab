@@ -8,7 +8,7 @@ service:
     # MetalLB for example could be used if a Loadbalancer is not provided by your provider
     type: LoadBalancer # Setting an external IP for simple port forwarding
     externalTrafficPolicy: Cluster
-    loadBalancerIP: "10.109.8.187" # IP of the satisfactory server
+    loadBalancerIP: "10.244.0.21" # IP of the satisfactory server
 
 persistence:
   config: # Config/save data stored here
