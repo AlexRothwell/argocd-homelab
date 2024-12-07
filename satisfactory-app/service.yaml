@@ -12,6 +12,7 @@ metadata:
   namespace: satisfactory
 spec:
   type: LoadBalancer
+  loadBalancerClass: tailscale
   allocateLoadBalancerNodePorts: true
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
