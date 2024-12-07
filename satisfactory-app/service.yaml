@@ -1,3 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: satisfactory
 ---
 apiVersion: v1
 kind: Service
@@ -5,6 +9,7 @@ metadata:
   name: satisfactory
   labels:
     app: satisfactory
+  namespace: satisfactory
 spec:
   type: LoadBalancer
   allocateLoadBalancerNodePorts: true

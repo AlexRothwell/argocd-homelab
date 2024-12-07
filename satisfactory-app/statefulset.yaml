@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: satisfactory
+  namespace: satisfactory
 spec:
   selector:
     matchLabels:
@@ -46,14 +47,14 @@ spec:
     - metadata:
         name: satisfactory-config
       spec:
-        accessModes: [ "ReadWriteOnce" ]
+        accessModes: ["ReadWriteOnce"]
         resources:
           requests:
             storage: 1Gi
     - metadata:
         name: satisfactory-data
       spec:
-        accessModes: [ "ReadWriteOnce" ]
+        accessModes: ["ReadWriteOnce"]
         resources:
           requests:
             storage: 20Gi
