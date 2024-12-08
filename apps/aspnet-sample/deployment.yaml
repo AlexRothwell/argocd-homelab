@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aspnet-sample
+  template:
+    metadata:
+      labels:
+        app: aspnet-sample
+    spec:
+      containers:
+        - name: aspnet-sample-container
+          image: mcr.microsoft.com/dotnet/samples:aspnetapp-chiseled
+          ports:
+            - name: "http"
+              containerPort: 8080
+              protocol: TCP

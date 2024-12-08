@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aspnet-sample
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aspnet-sample
+  labels:
+    app: aspnet-sample
+  namespace: aspnet-sample
+spec:
+  type: LoadBalancer
+  loadBalancerClass: tailscale
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ports:
+    - name: "http"
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: aspnet-sample
