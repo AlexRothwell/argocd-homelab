@@ -17,6 +17,6 @@ spec:
         - name: wol-container
           image: ghcr.io/seriousm4x/upsnap:4.3.4
           ports:
-            - name: "http"
+            - name: "wol-http"
               containerPort: 8090
               protocol: TCP
