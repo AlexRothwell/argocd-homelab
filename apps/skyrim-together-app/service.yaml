@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: skyrim-together
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: skyrim-together
+  labels:
+    app: skyrim-together
+  namespace: skyrim-together
+spec:
+  type: LoadBalancer
+  loadBalancerClass: tailscale
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ports:
+    - name: "game"
+      port: 10578
+      protocol: UDP
+      targetPort: 10578
+  selector:
+    app: skyrim-together
