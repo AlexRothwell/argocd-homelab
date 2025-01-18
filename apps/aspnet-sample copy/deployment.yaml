@@ -7,14 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aspnet-sample
+      app: aspnet-sample-copy
   template:
     metadata:
       labels:
-        app: aspnet-sample
+        app: aspnet-sample-copy
     spec:
       containers:
-        - name: aspnet-sample-container
+        - name: aspnet-sample-copy-container
           image: mcr.microsoft.com/dotnet/samples:aspnetapp-chiseled
           ports:
             - name: "http"
