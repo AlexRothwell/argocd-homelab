@@ -12,6 +12,8 @@ spec:
   template:
     metadata:
       name: "{{path.basename}}"
+       annotations:
+         notifications.argoproj.io/subscribe.slack: discord
     spec:
       project: default
       source:
