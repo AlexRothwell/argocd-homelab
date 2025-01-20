@@ -66,9 +66,6 @@ spec:
     - ReadOnlyMany
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
-  claimRef:
-    name: jellyfin-media
-    namespace: jellyfin
   local:
     path: /mnt/disks/ssd1
   nodeAffinity:
