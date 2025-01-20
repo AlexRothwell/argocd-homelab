@@ -48,6 +48,9 @@ spec:
         name: jellyfin-media
       spec:
         accessModes: ["ReadOnlyMany"]
+        resources:
+          requests:
+            storage: 100Gi
 ---
 apiVersion: v1
 kind: PersistentVolume
