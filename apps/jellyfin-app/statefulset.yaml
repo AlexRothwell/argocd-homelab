@@ -47,6 +47,8 @@ spec:
     - metadata:
         name: jellyfin-media
       spec:
+        storageClassName: ""
+        volumeName: jellyfin-media
         accessModes: ["ReadOnlyMany"]
         resources:
           requests:
