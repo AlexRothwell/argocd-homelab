@@ -47,7 +47,7 @@ spec:
     - metadata:
         name: jellyfin-media
       spec:
-        storageClassName: ""
+        storageClassName: local-storage
         volumeName: jellyfin-media
         accessModes: ["ReadOnlyMany"]
         resources:
