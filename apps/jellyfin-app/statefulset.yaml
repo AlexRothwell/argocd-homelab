@@ -44,20 +44,26 @@ spec:
         resources:
           requests:
             storage: 1Gi
+    - metadata:
+        name: jellyfin-media
+      spec:
+        accessModes: ["ReadOnlyMany"]
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: jellyfin-media
-  namespace: jellyfin
 spec:
   capacity:
     storage: 950Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
+  claimRef:
+    name: jellyfin-media
+    namespace: jellyfin
   local:
     path: /mnt/disks/ssd1
   nodeAffinity:
