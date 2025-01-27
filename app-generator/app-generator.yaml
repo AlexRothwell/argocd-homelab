@@ -13,7 +13,7 @@ spec:
     metadata:
       name: "{{path.basename}}"
       annotations:
-        notifications.argoproj.io/subscribe.slack: discord
+        notifications.argoproj.io/subscribe.webhook.discord: argocd
     spec:
       project: default
       source:
