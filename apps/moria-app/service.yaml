@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: moria
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moria
+  labels:
+    app: moria
+  namespace: moria
+spec:
+  type: LoadBalancer
+  loadBalancerClass: tailscale
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ports:
+    - name: "game"
+      port: 7777
+      protocol: UDP
+      targetPort: 7777
+  selector:
+    app: moria

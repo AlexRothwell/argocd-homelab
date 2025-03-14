@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: moria
+  namespace: moria
+spec:
+  selector:
+    matchLabels:
+      app: moria
+  serviceName: "moria"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: moria
+    spec:
+      containers:
+        - name: moria
+          image: andrewsav/moria:1.1.1
+          ports:
+            - name: "game"
+              containerPort: 7777
+              protocol: UDP
+          volumeMounts:
+            - name: moria-install
+              mountPath: /server
+            - name: moria-steam-cache
+              mountPath: /root/Steam
+  volumeClaimTemplates:
+    - metadata:
+        name: moria-install
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 20Gi
+    - metadata:
+        name: moria-steam-cache
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
