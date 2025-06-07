@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: satisfactory
-          image: wolveix/satisfactory-server@sha256:fb813404691ee74a3e3934ae80362eb83360da7361d16ae5371c64da18bb42cb
+          image: wolveix/satisfactory-server@sha256:3d4754002f5f1a0854db4d758ce589e141911b531f4a690d642fae9b27f4a901
           env:
             - name: DEBUG
               value: "false"
@@ -30,7 +30,7 @@ spec:
             - name: SKIPUPDATE
               value: "false"
             - name: STEAMBETA
-              value: "false"
+              value: "true"
           ports:
             - name: "api"
               containerPort: 7777
