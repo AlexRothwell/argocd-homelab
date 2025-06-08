@@ -9,7 +9,7 @@ spec:
     matchLabels:
       app: skyrim-together
   serviceName: "skyrim-together"
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
